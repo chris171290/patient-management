@@ -10,6 +10,7 @@ import { UserFormValidation } from '@/lib/Validation'
 import { Form } from '@/components/ui/form'
 import CustomFormField from '@/components/CustomFormField'
 import SubmitButton from '@/components/SubmitButton'
+import { createUser } from '@/lib/actions/patient.actions'
 
 export enum FormFieldTypes {
   INPUT = 'input',
@@ -46,18 +47,20 @@ const PatientForm = () => {
     setIsLoading(true)
 
     try {
-      // const userData = { name, email, phone }
+      const userData = { name, email, phone }
+      console.log('userData:',userData)
 
-      // const user = await createUser(userData)
+      const user = await createUser(userData)
+      console.log('user',user)
 
-      // if(user) router.push(`/patients/${user.$id}/register`)
+      if(user) router.push(`/patients/${user.$id}/register`)
     } catch (error) {
       console.log(error)
     }
 
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    console.log({ name, email, phone })
+    // console.log({ name, email, phone })
   }
   return (
     <Form {...form}>

@@ -13,6 +13,9 @@ const fontSans = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: 'CarePulse',
   description: 'Healthcare management system',
+  icons: {
+    icon: '/favicon.ico',
+  },  
 };
 
 export default function RootLayout({
@@ -21,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
+    <html lang='en' suppressHydrationWarning>
       <body
         className={cn('text-white min-h-screen bg-dark-300 font-sans antialiased', fontSans.variable)}
       >
